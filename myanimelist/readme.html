@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyAnimeList Application for IPB4 by Magnum357</title>
+	<style>
+		body {
+			background: #f7f7f7;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			color: #7c7c7c;
+		}
+
+		.header {
+    		background: #6b6b6b;
+    		color: white;
+    		padding: 15px;
+		}
+
+		.container {
+			margin: 20px;
+		}
+
+		.author {
+    		font-size: 10px;
+    		color: #bed8ff;
+    		margin-top: 9px;
+		}
+
+		.nick {
+    		color: #ffa874;
+			font-weight: bold;
+		}
+
+		.box {
+    		background: white;
+    		border: 3px solid rgba(200, 197, 197, 0.27);
+    		max-width: 500px;
+    		border-radius: 4px 4px 4px 4px;
+    		padding: 12px;
+		}
+
+		.box .title {
+    		font-size: 13px;
+    		font-weight: bold;
+    		text-transform: uppercase;
+			border-radius: 4px 4px 0px 0px;
+		}
+
+		.box .content {
+			font-size: 15px;
+		}
+
+		.pageHeader {
+			font-size: 35px;
+			margin: 0;
+		}
+
+		.miniHeader {
+			font-size: 25px;
+			color: #9b9b9b;
+			margin: 0 0 15px 0;
+		}
+
+		.header .description {
+			color: #dadada;
+		}
+
+		.header hr.default {
+    		border-color: #bed8ff;
+    		max-width: 50px;
+    		border-width: 1px;
+		}
+
+		.title .description {
+    		display: block;
+    		font-size: 10px;
+    		margin-top: 3px;
+			text-transform: lowercase;
+		}
+
+		.description {
+    		color: #b3b3b3;
+    		font-size: 12px;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		ol {
+    		margin: 0;
+    		padding-left: 15px;
+    		font-size: 13px;
+			line-height: 20px;
+		}
+
+		.content p:first-child {
+			margin-top: 0;
+		}
+
+		.content p:last-child {
+			margin-bottom: 0;
+		}
+
+		hr.default {
+    		border-color: #e7e7e7;
+    		border-style: solid;
+    		border-width: 0.03em;
+		}
+
+		.boxCenter {
+    		margin: 0 auto;
+		}
+
+		.icon {
+			background: black;
+			color: white;
+			width: 150px;
+    		height: 150px;
+    		border-radius: 5px;
+    		text-align: center;
+			display: inline-block;
+			position: relative;
+		}
+
+		.icon .icon_fa {
+    		line-height: 90px;
+    		font-size: 80px;
+    		padding-top: 20px;
+		}
+
+		.discord {
+			background: #a4a6f7;
+		}
+
+		.privatemessage {
+    		background: #404040;
+		}
+
+		.marketplace {
+			background: #2f598e;
+		}
+
+		.icon .info {
+    		position: absolute;
+    		font-size: 8px;
+    		background: red;
+    		padding: 2px 5px;
+    		top: 0px;
+    		right: 0px;
+    		border-radius: 0px 4px 0px 4px;
+		}
+
+		.icon .text {
+    		font-size: 15px;
+		}
+
+		.iconList a {
+			margin-right: 10px;
+		}
+
+		.iconList a:last-child {
+			margin-right: 0px;
+		}
+
+		.iconList a:hover div {
+			opacity: 0.9;
+		}
+
+		.spacerDouble {
+			margin: 40px 0;
+		}
+
+		code {
+			background: #cccccc;
+    		color: white;
+    		padding: 6px 10px;
+    		display: block;
+    		border-radius: 3px;
+    		border: 1px solid #86868654;
+    		word-break: break-all;
+    		font-size: 12px;
+    		border-top-width: 3px;
+		}
+
+		code dark {
+    		color: #555555;
+		}
+
+		.button {
+    		background: #fdfdfd;
+    		padding: 1px 6px;
+    		color: #979797;
+    		border: 1px solid #bebebe;
+    		box-shadow: 0px 1px 0px rgba(0,0,0,0.2);
+    		border-radius: 6px;
+    		font-size: 10px;
+    		font-weight: bold;
+		}
+
+		.featureBox {
+    		background: black;
+    		color: white;
+    		display: block;
+    		width: 100%;
+    		font-size: 20px;
+    		margin-bottom: 10px;
+    		border-radius: 4px;
+		}
+
+		.featureList {
+    		max-width: 300px;
+		}
+
+		.featureList .featureBox:last-child {
+			margin-bottom: 0;
+		}
+
+		.featureBox span {
+			display: table-cell;
+    		padding: 15px;
+		}
+
+		.featureBox span:first-child {
+			background: #0000001c;
+    		width: 25px;
+    		border-radius: 4px 0px 0px 4px;
+		}
+
+		.responsive {
+    		background: #29b369;
+		}
+
+		.cache {
+    		background: #7173c4;
+		}
+
+		.update {
+    		background: #edc66b;
+		}
+
+		.trans {
+    		background: #e18dd6;
+		}
+
+		.edit {
+    		background: #ff7474;
+		}
+
+		.thumb {
+    		background: #3ba193;
+		}
+
+	</style>
+
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="header center">
+
+<h2 class="pageHeader">MyAnimeList</h2>
+
+<div class="description">Application for IPB4</div>
+
+<hr class="default">
+
+<div class="author"><i class="fas fa-code"></i> Developed by <span class="nick">Magnum357</span></div>
+
+</div>
+
+<div class="container">
+
+<h3 class="miniHeader center"><i class="fas fa-file-alt"></i> Introduction</h3>
+
+<div class="box boxCenter">
+	<div class="title">What is it?<span class="description">a bbcode that makes a box</span></div>
+	<hr class="default">
+	<div class="content">
+		<p>
+			Pulls the data from MyAnimeList according to the desired values and create <b>an info box</b>.
+		</p>
+	</div>
+</div>
+
+<hr class="default spacerDouble">
+
+<h3 class="miniHeader center"><i class="fas fa-box-open"></i> Installation</h3>
+
+<div class="box boxCenter">
+	<div class="title">First step: Application<span class="description">this does everything</span></div>
+	<hr class="default">
+	<div class="content">
+		<ol>
+			<li>Go to applications list: <b>ACP / System Tab / Site Features Menu Item / Applications Sub Menu Item.</b></li>
+			<li>Click on <span class="button">Install</span> and select the application file (with tar extension).</li>
+			<li>Start the installation by clicking <span class="button">Install</span> on the pop up window.</li>
+		</ol>
+	</div>
+
+	<br><br>
+
+	<div class="title">Second and last step: Editor Plugin<span class="description">to create the bbcode quickly</span></div>
+	<hr class="default">
+	<div class="content">
+		<ol>
+			<li>Go to the page to edit the editor: <b>ACP / Customizastion Tab / Editor Menu Item / Toolbar Sub Menu Item.</b></li>
+			<li>Click on <span class="button">Install Button</span> and select the editor file (with zip extension).</li>
+			<li>Start the installation by clicking <span class="button">Save</span> on the new window.</li>
+			<li>Hold the MyAnimeList button/icon on <b>the buttons not on editor section</b> and drag it to the above editor.</li>
+		</ol>
+	</div>
+</div>
+
+<br>
+
+<hr class="default spacerDouble">
+
+<h3 class="miniHeader center"><i class="far fa-keyboard"></i> Usage</h3>
+
+<div class="box boxCenter">
+	<div class="title">BBCode Syntax<span class="description">link parameters</span></div>
+	<hr class="default">
+	<div class="content">
+		<p>
+			Get the required values from the link you want to create an info box:
+		</p>
+		<p>
+			<code><dark>https://myanimelist.net/</dark>anime<dark>/</dark>5114<dark>/Fullmetal_Alchemist__Brotherhood</dark></code>
+		</p>
+		<p>
+			And put the values to this:
+		</p>
+		<p>
+			<code>[mal type=anime id=5114]</code>
+		</p>
+		<p>
+			All you need to do. After you post it, the info box will be created.
+		</p>
+	</div>
+</div>
+
+<hr class="default spacerDouble">
+
+<h3 class="miniHeader center"><i class="fas fa-cogs"></i> Features</h3>
+
+<div class="featureList boxCenter">
+
+	<div class="featureBox responsive boxCenter center"><span class="featureIcon"><i class="fas fa-exchange-alt"></i></span><span>Responsive Design</span></div>
+
+	<div class="featureBox cache boxCenter center"><span class="featureIcon"><i class="fas fa-hdd"></i></span><span>Cache System</span></div>
+
+	<div class="featureBox update boxCenter center"><span class="featureIcon"><i class="fas fa-upload"></i></span><span>Auto Data Update</span></div>
+
+	<div class="featureBox trans boxCenter center"><span class="featureIcon"><i class="fas fa-language"></i></span><span>Translatable</span></div>
+
+	<div class="featureBox edit boxCenter center"><span class="featureIcon"><i class="fas fa-pencil-alt"></i></span><span>Description Editing</span></div>
+
+	<div class="featureBox thumb boxCenter center"><span class="featureIcon"><i class="fas fa-image"></i></span><span>Topic Thumbnail</span></div>
+
+</div>
+
+<hr class="default spacerDouble">
+
+<h3 class="miniHeader center"><i class="fas fa-life-ring"></i> Support</h3>
+
+<div class="boxCenter center iconList">
+	<a href="https://discordapp.com/invite/RYeBtFu" target="_blank" title="Join to discord"><div class="icon discord"><div class="icon_fa"><i class="fab fa-discord"></i></div><span class="text">discord server</span><span class="info">Advanced Help</span></div></a>
+	<a href="https://invisioncommunity.com/profile/567860-magnum357/" target="_blank" title="Send private message"><div class="icon privatemessage"><div class="icon_fa"><i class="fas fa-envelope"></i></div><span class="text">private message</span></div></a>
+	<a href="https://invisioncommunity.com/forums/topic/444229-myanimelist-tag-support-topic/" target="_blank" title="Give feedback"><div class="icon marketplace"><div class="icon_fa"><i class="fas fa-comments"></i></div><span class="text">support topic</span></div></a>
+</div>
+
+</div>
+
+</body>
+</html>
